@@ -346,6 +346,8 @@ impl Lower for Statement {
                         }
                     } else if let Some(clause) = &stmt.else_clause {
                         assign_clause!(self, clause.body);
+                    } else {
+                        *self = Statement::Void;
                     }
                 }
             }
